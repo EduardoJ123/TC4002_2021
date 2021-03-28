@@ -1,5 +1,6 @@
 import unittest
 
+
 class recordManager:
     def __init__(self):
         self.records_file = "directory.txt"
@@ -53,44 +54,56 @@ class recordManager:
             print(line.strip("\n"))
         return 0
 
+
 class recordManagerTest(unittest.TestCase):
     def test_add_record(self):
         manager = recordManager()
         self.assertAlmostEqual(manager.addRecord("Eduardo", "lalo@itesm.mx", "27", "Mexico"), 0)
+
     def test_add_two_records(self):
         manager = recordManager()
         self.assertAlmostEqual(manager.addRecord("Juan", "juan@itesm.mx", "33", "Mexico"), 0)
         self.assertAlmostEqual(manager.addRecord("Pedro", "pedro@itesm.mx", "25", "Nicaragua"), 0)
+
     def test_add_incomplete_record(self):
         manager = recordManager()
         with self.assertRaises(TypeError):
             manager.addRecord("Alberto", "beto@itesm.mx")
+
     def test_add_not_string_record(self):
         manager = recordManager()
-        self.assertAlmostEqual(manager.addRecord("Alberto", "beto@itesm.mx", 35, "Mexico"), 0)  #No error expected
+        self.assertAlmostEqual(manager.addRecord("Alberto", "beto@itesm.mx", 35, "Mexico"), 0)  # No error expected
+
     def test_delete_record(self):
         manager = recordManager()
         self.assertAlmostEqual(manager.deleteRecord("Juan", "juan@itesm.mx", "33", "Mexico"), 0)
+
     def test_delete_non_existent_record(self):
         manager = recordManager()
         with self.assertRaises(ValueError):
             manager.deleteRecord("Pepito", "pepito@itesm.mx", "55", "Mexico")
+
     def test_look_by_mail(self):
         manager = recordManager()
         self.assertAlmostEqual(manager.lookbyMail("lalo@itesm.mx"), 0)
+
     def test_look_by_non_existent_mail(self):
         manager = recordManager()
         with self.assertRaises(ValueError):
             manager.lookbyMail("pepito@itesm.mx")
+
     def test_look_by_age(self):
         manager = recordManager()
         self.assertAlmostEqual(manager.lookbyAge("25"), 0)
+
     def test_look_by_non_existent_age(self):
         manager = recordManager()
-        self.assertAlmostEqual(manager.lookbyAge("999999999"), 0)   #No error expected
+        self.assertAlmostEqual(manager.lookbyAge("999999999"), 0)   # No error expected
+
     def test_print_records(self):
         manager = recordManager()
         self.assertAlmostEqual(manager.printRecords(), 0)
+
 
 if __name__ == '__main__':
     unittest.main()
