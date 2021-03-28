@@ -1,3 +1,2 @@
-# hello-world
-Hello world repository for TC4002
-This repository is made to demonstrate Lab3.1 GIT HelloWorld completion.
+# TC4002_2021
+This repository contains activities from Analysis, Design, and Construction of Software course, class of 2021.
