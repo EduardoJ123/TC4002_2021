@@ -12,6 +12,8 @@ class recordManager:
         return 0
 
     def deleteRecord(self, name, email, age, country):
+        print("Deleting: ")
+        print(name, email, age, country)
         f = open(self.records_file, "r")
         data = f.readlines()
         f.close()
@@ -38,6 +40,7 @@ class recordManager:
         data = f.readlines()
         f.close()
         for i in range(data.count(age + "\n")):
+            print(i)
             idx = data.index(age + "\n")
             print("\n")
             for j in range(-2, 2):

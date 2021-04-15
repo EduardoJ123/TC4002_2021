@@ -1,6 +1,4 @@
 import unittest
-import pycodestyle
-
 
 def decTohex(dec):
     hexa = ''
